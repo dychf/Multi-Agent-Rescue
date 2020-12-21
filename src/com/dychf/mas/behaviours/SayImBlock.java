@@ -33,9 +33,9 @@ public class SayImBlock extends SimpleBehaviour {
 
         if (myPosition != "") {
             msg.setContent(this.myAgent.getName() + " ; " + myPosition);
-            for (int i = 0; i < ConfigurationFile.exploNum; i++) {
-                msg.addReceiver(new AID("Explo" + i, AID.ISLOCALNAME));
-            }
+            //for (int i = 0; i < ConfigurationFile.exploNum; i++) {
+                msg.addReceiver(new AID("Explo" , AID.ISLOCALNAME));
+           // }
 
             ((AbstractDedaleAgent) this.myAgent).sendMessage(msg);
         }

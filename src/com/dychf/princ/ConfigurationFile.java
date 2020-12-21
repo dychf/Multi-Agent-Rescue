@@ -8,22 +8,20 @@ import eu.su.mas.dedale.env.EnvironmentType;
  * @author hc
  */
 public final class ConfigurationFile {
-    public static final String[] entities = {"hunter1", "hunter1", "hunter1", "prey"};
-
-    public static final Integer topologySize = 10;
-    public static final Integer exploNum = 2;
+    public static final String[] entities_hunter = {"hunter1", "hunter2", "hunter3"};
+    public static final String[] entities_prey = {"prey"};
 
     public static String topology_path = "resources/dychf/test1/myTopology";
     public static String element_path = "resources/dychf/test1/myElements";
     public static String entity_path = "resources/dychf/test1/myEntities";
 
+    public static Integer topologySize = 10;
     /******************************
      *
      * PLATEFORM configuration
      *
      *****************************/
 
-    public static boolean PLATFORMisDISTRIBUTED = false;
     public static boolean COMPUTERisMAIN = true;
 
     public static String PLATFORM_HOSTNAME = "127.0.0.1";
@@ -86,11 +84,6 @@ public final class ConfigurationFile {
      * Parameter used to generate the environment
      */
     public static Integer ENVIRONMENT_SIZE = 10;
-
-    /**
-     * Parameter used to perceive the wumpus trough its smell
-     */
-    public static final Integer DEFAULT_DETECTION_RADIUS = 1;
 
     /**
      * true if a grid environment should be generated, false otherwise (A dogoronev env is generated)

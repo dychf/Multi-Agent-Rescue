@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author ilyas Aroui
  */
-public class ExploreAgent extends AbstractDedaleAgent implements AgentInterface {
+public class HunterAgent extends AbstractDedaleAgent implements AgentInterface {
 
     private static final long serialVersionUID = -6431752665590433727L;
     private MapRepresentation myMap;

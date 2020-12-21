@@ -1,8 +1,11 @@
 package com.dychf.gen;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Random;
 
 import com.dychf.princ.ConfigurationFile;
+import eu.su.mas.dedale.env.EntityType;
 import org.graphstream.algorithm.generator.DorogovtsevMendesGenerator;
 import org.graphstream.algorithm.generator.Generator;
 import org.graphstream.algorithm.generator.GridGenerator;
@@ -20,9 +23,27 @@ public class GenerateMASInfo {
 
     public static void main(String[] args) {
         //genTopology(false);
-        genEntities(ConfigurationFile.exploNum);
+        genEntities(ConfigurationFile.entities_hunter, EntityType.AGENT_EXPLORER);
+        genEntities(ConfigurationFile.entities_prey, EntityType.AGENT_TANKER);
     }
 
+
+    public static void genEntities(String[] entity, EntityType entityType) {
+        //agentExplo:Explo1:4:0_0:0:0:0:2:0
+        System.out.println("mapname:entities");
+        Graph graph = generateGraph(false, ConfigurationFile.topologySize);
+        int nodeCount = graph.getNodeCount();
+        int weight = new Random().nextInt(nodeCount / entity.length);
+        for (int i = 0; i < entity.length; i++) {
+            System.out.println(lowerFirstCase(entityType.toString()) + ":" + entity[i] + ":4:" + graph.getNode((i + 1) * weight) + ":0:0:0:0:2");
+        }
+    }
+
+    /**
+     * 生成拓扑图
+     *
+     * @param full
+     */
     public static void genTopology(boolean full) {
         System.out.println("DGS004\n" +
                 "null 0 0\n" +
@@ -60,19 +81,6 @@ public class GenerateMASInfo {
         }
     }
 
-    public static void genEntities(int exploNum) {
-        //agentExplo:Explo1:4:0_0:0:0:0:2:0
-        System.out.println("mapname:entities");
-        Graph graph = generateGraph(false, ConfigurationFile.topologySize);
-        Iterable<? extends Node> nodes = graph.getEachNode();
-        int flag = 0;
-        for (Node node : nodes) {
-            System.out.println("agentExplo:Explo" + flag + ":4:" + node + ":0:0:0:0:2");
-            flag++;
-            if (flag >= exploNum) break;
-        }
-    }
-
     /**
      * @param type true creates a Dorogovtsev env, false create a grid.
      * @param size number of iteration, the greater the bigger maze.
@@ -104,4 +112,10 @@ public class GenerateMASInfo {
         return g;
     }
 
+    public static String lowerFirstCase(String str) {
+        char[] chars = str.toCharArray();
+        //首字母小写方法，大写会变成小写，如果小写首字母会消失
+        chars[0] += 32;
+        return String.valueOf(chars);
+    }
 }

@@ -1,15 +1,12 @@
 package com.dychf.mas.behaviours;
 
 import com.dychf.mas.agents.AgentInterface;
-import com.dychf.mas.agents.ExploreAgent;
+import com.dychf.mas.agents.HunterAgent;
 import com.dychf.mas.knowledge.MapRepresentation;
-import com.dychf.princ.ConfigurationFile;
 import dataStructures.tuple.Couple;
 import eu.su.mas.dedale.env.Observation;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
-import jade.core.AID;
 import jade.core.behaviours.SimpleBehaviour;
-import jade.lang.acl.ACLMessage;
 
 import java.util.*;
 
@@ -36,7 +33,7 @@ public class MapExploration extends SimpleBehaviour {
      */
     private Set<String> closedNodes;
 
-    public MapExploration(final ExploreAgent myAgent) {
+    public MapExploration(final HunterAgent myAgent) {
         super(myAgent);
         this.openNodes = new ArrayList<String>();
         this.closedNodes = new HashSet<String>();

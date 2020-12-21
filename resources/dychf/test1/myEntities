@@ -1,3 +1,5 @@
 mapname:entities
-agentExplo:Explo0:4:0_0:0:0:0:0:2
-agentExplo:Explo1:4:1_0:0:0:0:0:2
+agentExplo:hunter1:4:4_3:0:0:0:0:2
+agentExplo:hunter2:4:6_2:0:0:0:0:2
+agentExplo:hunter3:4:1_7:0:0:0:0:2
+agentTanker:prey:4:10_2:0:0:0:0:2

@@ -44,9 +44,9 @@ public class SendMap extends SimpleBehaviour {
                 e.printStackTrace();
             }
 
-            for (int i = 0; i < ConfigurationFile.exploNum; i++) {
-                msg_map.addReceiver(new AID("Explo" + i, AID.ISLOCALNAME));
-            }
+            //for (int i = 0; i < ConfigurationFile.exploNum; i++) {
+                msg_map.addReceiver(new AID("Explo" , AID.ISLOCALNAME));
+            //}
 
             ((AbstractDedaleAgent) this.myAgent).sendMessage(msg_map);
 

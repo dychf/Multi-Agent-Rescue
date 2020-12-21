@@ -19,11 +19,11 @@ public class EndProcess extends SimpleBehaviour {
         msg_finish.setSender(this.myAgent.getAID());
         msg_finish.setProtocol("finish_protocol");
 
-        for (int i = 0; i < ConfigurationFile.exploNum; i++) {
+       /* for (int i = 0; i < ConfigurationFile.exploNum; i++) {
             if (!(this.myAgent.getLocalName()).equals("Explo" + i)) {
                 msg_finish.addReceiver(new AID("Explo" + i, AID.ISLOCALNAME));
             }
-        }
+        }*/
         ((AbstractDedaleAgent) this.myAgent).sendMessage(msg_finish);
         System.out.println("_____Mission finished._____________________________________________________________");
         finished = true;

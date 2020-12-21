@@ -1,7 +1,7 @@
 package com.dychf.princ;
 
-import com.dychf.gen.GenerateMASInfo;
-import com.dychf.mas.agents.ExploreAgent;
+import com.dychf.mas.agents.HunterAgent;
+import com.dychf.mas.agents.PreyAgent;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agents.GateKeeperAgent;
 import jade.core.Profile;
@@ -272,25 +272,44 @@ public class Principal {
          *
          *****************************************************/
 
-        for (int i = 0; i < ConfigurationFile.exploNum; i++) {
-
+        for (int i = 0; i < ConfigurationFile.entities_hunter.length; i++) {
             /*********
-             * AGENT Explo
+             * AGENT hunter
              *********/
             //1) Get the container where the agent will appear
             c = containerList.get(ConfigurationFile.LOCAL_CONTAINER_NAME);
             Assert.assertNotNull("This container does not exist", c);
 
             //2) Give the name of your agent, MUST be the same as the one given in the entities file.
-            agentName = "Explo" + i;
+            agentName = ConfigurationFile.entities_hunter[i];
 
             //3) If you want to give specific parameters to your agent, add them here
             Object[] entityParameters2 = {"My parameters"};
 
             //4) Give the class name of your agent to let the system instantiate it
-            ag = createNewDedaleAgent(c, agentName, ExploreAgent.class.getName(), entityParameters2);
+            ag = createNewDedaleAgent(c, agentName, HunterAgent.class.getName(), entityParameters2);
             agentList.add(ag);
         }
+
+        for (int i = 0; i < ConfigurationFile.entities_prey.length; i++) {
+            /*********
+             * AGENT prey
+             *********/
+            //1) Get the container where the agent will appear
+            c = containerList.get(ConfigurationFile.LOCAL_CONTAINER_NAME);
+            Assert.assertNotNull("This container does not exist", c);
+
+            //2) Give the name of your agent, MUST be the same as the one given in the entities file.
+            agentName = ConfigurationFile.entities_prey[i];
+
+            //3) If you want to give specific parameters to your agent, add them here
+            Object[] entityParameters2 = {"My parameters"};
+
+            //4) Give the class name of your agent to let the system instantiate it
+            ag = createNewDedaleAgent(c, agentName, PreyAgent.class.getName(), entityParameters2);
+            agentList.add(ag);
+        }
+
 
         /*********************
          * All agents created
