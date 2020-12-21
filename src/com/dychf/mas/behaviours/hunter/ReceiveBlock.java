@@ -1,4 +1,4 @@
-package com.dychf.mas.behaviours;
+package com.dychf.mas.behaviours.hunter;
 
 import dataStructures.tuple.Couple;
 import eu.su.mas.dedale.env.Observation;

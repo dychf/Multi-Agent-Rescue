@@ -1,6 +1,6 @@
 package com.dychf.mas.agents;
 
-import com.dychf.mas.behaviours.*;
+import com.dychf.mas.behaviours.hunter.*;
 import com.dychf.mas.knowledge.MapRepresentation;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedale.mas.agent.behaviours.startMyBehaviours;

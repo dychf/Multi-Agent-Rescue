@@ -1,4 +1,4 @@
-package com.dychf.mas.behaviours;
+package com.dychf.mas.behaviours.hunter;
 
 import com.dychf.princ.ConfigurationFile;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;

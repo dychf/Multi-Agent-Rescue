@@ -1,4 +1,4 @@
-package com.dychf.mas.behaviours;
+package com.dychf.mas.behaviours.hunter;
 
 import com.dychf.mas.agents.AgentInterface;
 import com.dychf.mas.knowledge.MapRepresentation;
